@@ -9,15 +9,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
+  @State var message = "Hello, World"
+  @State var isRunning = false
+  
+  var body: some View {
+    VStack {
+      Text("SayThis")
+        .font(.largeTitle)
+        .padding()
+      HStack {
+        TextField("Message", text: $message)
+          .padding(.leading)
+        Button(action: runCommand) {
+          Text("Say")
+        }.disabled(isRunning)
+          .padding(.trailing)
+      }
+    }.frame(maxWidth: .infinity, maxHeight: .infinity)
+  }
+  
+  func runCommand() {
+    let executableURL = URL(fileURLWithPath: "/usr/bin/say")
+    self.isRunning = true
+    try! Process.run(executableURL,
+                     arguments: [self.message],
+                     terminationHandler: { _ in self.isRunning = false })
+  }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
