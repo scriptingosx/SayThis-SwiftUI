@@ -64,16 +64,12 @@ struct ContentView: View {
   }
 
   func runCommand() {
-    var arguments = [message]
-    if selectedVoice != "System Default" {
-      arguments.append(contentsOf: ["-v", selectedVoice])
-    }
-
+    let arguments = [message, "-v", selectedVoice]
     let executableURL = URL(fileURLWithPath: "/usr/bin/say")
     self.isRunning = true
-    try! Process.run(executableURL,
-                     arguments: arguments,
-                     terminationHandler: { _ in self.isRunning = false })
+    try! Process.run(executableURL, arguments: arguments) { _ in
+      self.isRunning = false
+    }
   }
 
   func runCommandNew() async {
