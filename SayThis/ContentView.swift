@@ -13,7 +13,7 @@ struct ContentView: View {
   @State var isRunning = false
 
   @State var voices: [String] = []
-  @State var selectedVoice: String = "Samantha"
+  @State var selectedVoice: String = "System Default"
 
   var body: some View {
     VStack {
@@ -21,12 +21,16 @@ struct ContentView: View {
         .font(.largeTitle)
         .padding()
       Picker(selection: $selectedVoice, label: Text("Voice:")) {
+        Text("System Default").tag("System Default")
+        Divider()
         ForEach(voices, id: \.self) { Text($0) }
       }
       HStack {
         TextField("Message", text: $message)
         Button("Say") {
-          runCommand()
+          Task {
+            await runCommand()
+          }
         }
         .disabled(isRunning)
       }
@@ -61,14 +65,16 @@ struct ContentView: View {
       .filter { !$0.isEmpty }
   }
 
-  func runCommand() {
-    let arguments = [message, "-v", selectedVoice]
-    let executableURL = URL(fileURLWithPath: "/usr/bin/say")
-    self.isRunning = true
-    try! Process.run(executableURL, arguments: arguments) { _ in
-      self.isRunning = false
+  func runCommand() async {
+    var arguments = [message]
+    if selectedVoice != "System Default" {
+      arguments.append(contentsOf: ["-v", selectedVoice])
     }
+    self.isRunning = true
+    let _ = try? await Process.launch(path: "/usr/bin/say", arguments: arguments)
+    self.isRunning = false
   }
+
 }
 
 
