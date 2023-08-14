@@ -21,8 +21,6 @@ struct ContentView: View {
         .font(.largeTitle)
         .padding()
       Picker(selection: $selectedVoice, label: Text("Voice:")) {
-//        Text("System Default").tag("System Default")
-//        Divider()
         ForEach(voices, id: \.self) { Text($0) }
       }
       HStack {
@@ -70,16 +68,6 @@ struct ContentView: View {
     try! Process.run(executableURL, arguments: arguments) { _ in
       self.isRunning = false
     }
-  }
-
-  func runCommandNew() async {
-    var arguments = [message]
-    if selectedVoice != "System Default" {
-      arguments.append(contentsOf: ["-v", selectedVoice])
-    }
-    isRunning = true
-    let _ = try? await Process.launch(path: "/usr/bin/say", arguments: arguments)
-    isRunning = false
   }
 }
 
