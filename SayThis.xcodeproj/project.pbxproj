@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C66ED3122A8A15BD00E2FE12 /* Process-launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66ED3112A8A15BD00E2FE12 /* Process-launch.swift */; };
 		C6E24F4323954CE40052BF3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E24F4223954CE40052BF3B /* AppDelegate.swift */; };
 		C6E24F4523954CE40052BF3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E24F4423954CE40052BF3B /* ContentView.swift */; };
 		C6E24F4723954CE60052BF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E24F4623954CE60052BF3B /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C66ED3112A8A15BD00E2FE12 /* Process-launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Process-launch.swift"; sourceTree = "<group>"; };
 		C6E24F3F23954CE40052BF3B /* SayThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SayThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E24F4223954CE40052BF3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E24F4423954CE40052BF3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				C6E24F4223954CE40052BF3B /* AppDelegate.swift */,
 				C6E24F4423954CE40052BF3B /* ContentView.swift */,
+				C66ED3112A8A15BD00E2FE12 /* Process-launch.swift */,
 				C6E24F4623954CE60052BF3B /* Assets.xcassets */,
 				C6E24F4B23954CE60052BF3B /* Main.storyboard */,
 				C6E24F4E23954CE60052BF3B /* Info.plist */,
@@ -100,8 +103,9 @@
 		C6E24F3723954CE40052BF3B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Scripting OS X";
 				TargetAttributes = {
 					C6E24F3E23954CE40052BF3B = {
@@ -145,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66ED3122A8A15BD00E2FE12 /* Process-launch.swift in Sources */,
 				C6E24F4523954CE40052BF3B /* ContentView.swift in Sources */,
 				C6E24F4323954CE40052BF3B /* AppDelegate.swift in Sources */,
 			);
@@ -190,6 +195,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -197,6 +203,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -250,6 +257,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -257,6 +265,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -284,6 +293,7 @@
 				CODE_SIGN_ENTITLEMENTS = SayThis/SayThis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SayThis/Preview Content\"";
 				DEVELOPMENT_TEAM = JME5BW3F3R;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -293,7 +303,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scriptingosx.SayThis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -307,6 +317,7 @@
 				CODE_SIGN_ENTITLEMENTS = SayThis/SayThis.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SayThis/Preview Content\"";
 				DEVELOPMENT_TEAM = JME5BW3F3R;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -316,7 +327,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scriptingosx.SayThis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
